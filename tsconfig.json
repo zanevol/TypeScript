@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "outDir": "public/scripts",
+    "target": "es2015",
+    "module": "es2015",
+    "moduleResolution": "node",
+//    "allowJs": true,
+//    "esModuleInterop": true,
+//    "allowSyntheticDefaultImports": true,
+//    "isolatedModules": true,
+    "baseUrl": ".",
+    "paths": {
+      "/lib/dayjs/index.js": ["node_modules/dayjs/"],
+      "/lib/luxon/es6/luxon.js": ["node_modules/luxon"],
+    }
+  },
+  "files": [
+    "src/index.ts"
+  ],
+}
