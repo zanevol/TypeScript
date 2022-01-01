@@ -1,11 +1,11 @@
-'use strict';
+"use strict";
 exports.__esModule = true;
 exports.renderUserBlock = void 0;
-var lib_js_1 = require('./lib.js');
+var lib_js_1 = require("./lib.js");
 function renderUserBlock(username, avatarLink, favoriteItemsAmount) {
-  var favoritesCaption = favoriteItemsAmount ? favoriteItemsAmount : 'ничего нет';
-  var hasFavoriteItems = !!favoriteItemsAmount;
-  (0, lib_js_1.renderBlock)('user-block', '\n    <div class="header-container">\n      <img class="avatar" src="'.concat(avatarLink, '" alt="').concat(username, '" />\n      <div class="info">\n          <p class="name">').concat(username, '</p>\n          <p class="fav">\n            <i class="heart-icon').concat(hasFavoriteItems ? ' active' : '', '"></i>').concat(favoritesCaption, '\n          </p>\n      </div>\n    </div>\n    '));
+    var favoritesCaption = favoriteItemsAmount ? favoriteItemsAmount : 'ничего нет';
+    var hasFavoriteItems = !!favoriteItemsAmount;
+    (0, lib_js_1.renderBlock)('user-block', "\n    <div class=\"header-container\">\n      <img class=\"avatar\" src=\"".concat(avatarLink, "\" alt=\"").concat(username, "\" />\n      <div class=\"info\">\n          <p class=\"name\">").concat(username, "</p>\n          <p class=\"fav\">\n            <i class=\"heart-icon").concat(hasFavoriteItems ? ' active' : '', "\"></i>").concat(favoritesCaption, "\n          </p>\n      </div>\n    </div>\n    "));
 }
 exports.renderUserBlock = renderUserBlock;
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidXNlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbInVzZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7O0FBQUEsbUNBQXNDO0FBRXRDLFNBQWdCLGVBQWUsQ0FBRSxRQUFnQixFQUFFLFVBQWtCLEVBQUUsbUJBQTJCO0lBQ2hHLElBQU0sZ0JBQWdCLEdBQUcsbUJBQW1CLENBQUMsQ0FBQyxDQUFDLG1CQUFtQixDQUFDLENBQUMsQ0FBQyxZQUFZLENBQUE7SUFDakYsSUFBTSxnQkFBZ0IsR0FBRyxDQUFDLENBQUMsbUJBQW1CLENBQUE7SUFFOUMsSUFBQSxvQkFBVyxFQUNULFlBQVksRUFDWixvRkFFNkIsVUFBVSxzQkFBVSxRQUFRLDRFQUVqQyxRQUFRLGlGQUVGLGdCQUFnQixDQUFDLENBQUMsQ0FBQyxTQUFTLENBQUMsQ0FBQyxDQUFDLEVBQUUsb0JBQVMsZ0JBQWdCLHFEQUl2RixDQUNGLENBQUE7QUFDSCxDQUFDO0FBbEJELDBDQWtCQyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IHJlbmRlckJsb2NrIH0gZnJvbSAnLi9saWIuanMnXG5cbmV4cG9ydCBmdW5jdGlvbiByZW5kZXJVc2VyQmxvY2sgKHVzZXJuYW1lOiBzdHJpbmcsIGF2YXRhckxpbms6IHN0cmluZywgZmF2b3JpdGVJdGVtc0Ftb3VudDogbnVtYmVyKSB7XG4gIGNvbnN0IGZhdm9yaXRlc0NhcHRpb24gPSBmYXZvcml0ZUl0ZW1zQW1vdW50ID8gZmF2b3JpdGVJdGVtc0Ftb3VudCA6ICfQvdC40YfQtdCz0L4g0L3QtdGCJ1xuICBjb25zdCBoYXNGYXZvcml0ZUl0ZW1zID0gISFmYXZvcml0ZUl0ZW1zQW1vdW50XG5cbiAgcmVuZGVyQmxvY2soXG4gICAgJ3VzZXItYmxvY2snLFxuICAgIGBcbiAgICA8ZGl2IGNsYXNzPVwiaGVhZGVyLWNvbnRhaW5lclwiPlxuICAgICAgPGltZyBjbGFzcz1cImF2YXRhclwiIHNyYz1cIiR7YXZhdGFyTGlua31cIiBhbHQ9XCIke3VzZXJuYW1lfVwiIC8+XG4gICAgICA8ZGl2IGNsYXNzPVwiaW5mb1wiPlxuICAgICAgICAgIDxwIGNsYXNzPVwibmFtZVwiPiR7dXNlcm5hbWV9PC9wPlxuICAgICAgICAgIDxwIGNsYXNzPVwiZmF2XCI+XG4gICAgICAgICAgICA8aSBjbGFzcz1cImhlYXJ0LWljb24ke2hhc0Zhdm9yaXRlSXRlbXMgPyAnIGFjdGl2ZScgOiAnJ31cIj48L2k+JHtmYXZvcml0ZXNDYXB0aW9ufVxuICAgICAgICAgIDwvcD5cbiAgICAgIDwvZGl2PlxuICAgIDwvZGl2PlxuICAgIGBcbiAgKVxufVxuIl19

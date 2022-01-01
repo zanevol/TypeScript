@@ -1,18 +1,69 @@
-import {renderBlock} from "./lib.js";
-import {DateTime} from "/lib/luxon/es6/luxon.js";
+import { renderBlock } from './lib.js'
+import {DateTime} from '/lib/luxon/es6/luxon.js'
 
-export function renderSearchFormBlock(arrivalDate?: Date, departureDate?: Date) {
+export function listeners() {
+  const form = document.querySelector('form');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      find()
+    })
+  }
+}
+
+interface SearchFormData {
+  city: string,
+  checkin: DateTime,
+  checkout: DateTime,
+  maxPrice: number
+}
+
+// функция-обработчик формы
+function find(): void {
+  const city = (document.getElementById('city') as HTMLInputElement)?.value;
+  const checkin = (document.getElementById('check-in-date') as HTMLInputElement)?.value;
+  const checkout = (document.getElementById('check-out-date') as HTMLInputElement)?.value;
+  const maxPrice = +(document.getElementById('max-price') as HTMLInputElement)?.value;
+  const data = {
+    city,
+    checkin,
+    checkout,
+    maxPrice
+  }
+  search(data)
+}
+
+interface Place {
+
+}
+
+function search(data: SearchFormData, cb?: (place: Error | Place[]) => Error | Place[]): void {
+  console.log(data)
+  if (typeof cb !== 'function') {
+    cb = () => null
+  }
+  setTimeout(() => {
+    const rand = Math.random();
+    if (rand < 0.5) {
+      cb(new Error('Ошибка'))
+    } else {
+      cb([])
+    }
+  }, 1000)
+}
+
+export function renderSearchFormBlock (arrivalDate?: Date, departureDate?: Date) {
   const arrivalDateTime = !arrivalDate ? DateTime.now().plus({day: 1}) : DateTime.fromJSDate(arrivalDate);
   const departureDateTime = !departureDate ?
     arrivalDateTime.plus({day: 2}) :
     DateTime.fromJSDate(departureDate);
-  const minDate = DateTime.now().toFormat("yyyy-MM-dd");
+  const minDate = DateTime.now().toFormat('yyyy-MM-dd');
   const nextMonth = DateTime.now()
     .plus({month: 1});
-  const maxDate = nextMonth.set({day: nextMonth.daysInMonth}).toFormat("yyyy-MM-dd");
+  const maxDate = nextMonth.set({day: nextMonth.daysInMonth}).toFormat('yyyy-MM-dd');
 
   renderBlock(
-    "search-form-block",
+    'search-form-block',
     `
     <form>
       <fieldset class="search-filedset">
@@ -33,7 +84,7 @@ export function renderSearchFormBlock(arrivalDate?: Date, departureDate?: Date) 
             <input 
                 id="check-in-date" 
                 type="date" 
-                value="${arrivalDateTime.toFormat("yyyy-MM-dd")}" 
+                value="${arrivalDateTime.toFormat('yyyy-MM-dd')}" 
                 min="${minDate}" 
                 max="${maxDate}" 
                 name="checkin" />
@@ -43,7 +94,7 @@ export function renderSearchFormBlock(arrivalDate?: Date, departureDate?: Date) 
             <input 
                 id="check-out-date" 
                 type="date" 
-                value="${departureDateTime.toFormat("yyyy-MM-dd")}" 
+                value="${departureDateTime.toFormat('yyyy-MM-dd')}" 
                 min="${minDate}" 
                 max="${maxDate}" 
                 name="checkout" />
@@ -58,6 +109,6 @@ export function renderSearchFormBlock(arrivalDate?: Date, departureDate?: Date) 
         </div>
       </fieldset>
     </form>
-    `,
-  );
+    `
+  )
 }
